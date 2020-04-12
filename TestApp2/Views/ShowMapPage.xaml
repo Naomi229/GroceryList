@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:googleMaps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             xmlns:bindings="clr-namespace:Xamarin.Forms.GoogleMaps.Bindings;assembly=Xamarin.Forms.GoogleMaps.Bindings"
+             xmlns:viewModels="clr-namespace:TestApp2.ViewModels;assembly=TestApp2" 
+             x:Class="TestApp2.Views.ShowMapPage"
+             Title="Show Map">
+    <ContentPage.BindingContext>
+        <viewModels:ShowMapViewModel/>
+    </ContentPage.BindingContext>
+
+
+    <StackLayout Spacing="20" Padding="15">
+        <Button Text="Move to Tokyo" Command="{Binding MoveToTokyoCommand}"/>
+
+        <googleMaps:Map x:Name="MyMap" VerticalOptions="FillAndExpand" MyLocationEnabled="True">
+            <googleMaps:Map.Behaviors>
+                <bindings:MapClickedToCommandBehavior Command="{Binding MapClickedCommand}"/>
+                <bindings:BindingPinsBehavior Value="{Binding Pins}"/>
+                <bindings:PinClickedToCommandBehavior Command="{Binding PinClickedCommand}"/>
+                <bindings:SelectedPinChangedToCommandBehavior Command="{Binding SelectedPinChangedCommand}"/>
+                <bindings:InfoWindowClickedToCommandBehavior Command="{Binding InfoWindowClickedCommand}"/>
+                <bindings:InfoWindowLongClickedToCommandBehavior Command="{Binding InfoWindowLongClickedCommand}"/>
+                <bindings:PinDragStartToCommandBehavior Command="{Binding PinDragStartCommand}"/>
+                <bindings:PinDraggingToCommandBehavior Command="{Binding PinDraggingCommand}"/>
+                <bindings:PinDragEndToCommandBehavior Command="{Binding PinDragEndCommand}"/>
+            </googleMaps:Map.Behaviors>
+        </googleMaps:Map>
+
+    </StackLayout>
+
+</ContentPage>

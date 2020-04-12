@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TestApp2.Views.ShoppingListDetailPage"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        
+            <StackLayout Spacing="20" Padding="15">
+                <Label Text="{Binding Item.Name, StringFormat='ListName: {0}'}" d:Text="Name" FontSize="Small"/>
+                <Label Text="{Binding Item.CreationDate.ToString(), StringFormat= 'CreationDate: {0}'}" d:Text="CreationDate" FontSize="Small"/>
+                <Label Text="{Binding Item.Priority, StringFormat='Priority: {0}'}" d:Text="Priority" FontSize="Small"/>
+
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
